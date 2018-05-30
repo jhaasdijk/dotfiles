@@ -1,6 +1,6 @@
 # dotfiles
 
-A compiled list of configs and snippets created / gathered over time
+A compiled list of configs and snippets created over time
 
 # Configs
 - [x] i3
