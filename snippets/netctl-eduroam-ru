@@ -1,0 +1,17 @@
+# netctl profile for eduroam at the Radboud University Nijmegen
+
+Description='Eduroam'
+Interface=INTERFACE  # e.g. wlp3s0
+Connection=wireless
+Security=wpa-configsection
+ESSID=eduroam
+IP=dhcp
+Priority=1
+WPAConfigSection=(
+  'ssid="eduroam"'
+  'key_mgmt=WPA-EAP'
+  'eap=PEAP'
+  'identity="username@science.ru.nl"'
+  'password="password"'
+)
+
