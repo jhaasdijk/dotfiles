@@ -1,0 +1,198 @@
+
+#
+# i3 config
+#
+
+# set the modifier key
+set $mod Mod4
+
+# font for window titles (and bar, unless otherwise specified)
+font pango:inconsolata 9
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec terminator
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start your desired program launcher
+bindsym $mod+d exec rofi -show run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+v split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse2 (+ $mod) for that)
+mode "resize" {
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (+ bumblebee-status information)
+ bar {
+         mode        hide
+         modifier    None
+         position    top
+         tray_output none
+
+         status_command $HOME/Git/bumblebee-status/bumblebee-status -m pacman publicip disk amixer brightness load sensors memory cpu redshift battery datetime -p battery.warning="20" datetime.format="%H:%M:%S %A %d %b %Y" disk.format="{percent:05.02f}%" memory.format="{percent:05.02f}%" pacman.sum="true" publicip.region="nl" interval=5 -t gruvbox
+ 
+         colors {
+                 background #202020
+                 statusline #ffffff
+                 separator  #999999
+ 
+                 focused_workspace  #999999 #999999 #000000
+                 active_workspace   #717171 #717171 #000000
+                 inactive_workspace #454545 #454545 #ffffff
+                 urgent_workspace   #c4c4c4 #c4c4c4 #000000
+         }
+ }
+
+# Colours
+set $back               #1d1F21
+set $black              #282A2E
+set $grey               #222222
+set $lightgrey          #707880
+set $white              #C5C8C6
+set $yellow             #F0C674
+set $red                #CC6666
+set $darkred            #A54242
+set $green              #B5BD56
+
+#class                  border      backgr.     text        split
+client.focused          $green      $green      $black      $red
+client.focused_inactive $grey       $grey       $lightgrey  $grey
+client.unfocused        $grey       $grey       $lightgrey  $grey
+client.urgent           $red        $red        $black      $red
+client.background       $back
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Screen brightness controls
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5    # increase screen brightness
+
+# Volume controls
+set $aux_out alsa_output.pci-0000_00_1b.0.analog-stereo
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $aux_out +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $aux_out -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $aux_out toggle
+
+# Media controls
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+
+# Lockscreen
+bindsym Ctrl+Mod1+l exec betterlockscreen -l
+exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper
+exec --no-startup-id betterlockscreen -w
+
+# Ensure best monitor use when (un-) docking
+exec_always $HOME/Scripts/monitors.sh
+
+# Pretty-fying borders
+new_window pixel 1
+new_float pixel 1
+smart_borders on
+
+# Pretty-fying gaps
+gaps inner 2
+gaps outer 3
+
+# Using uk keyboard layout (because that's how I roll)
+exec --no-startup-id setxkbmap gb
+
+# Adjusting blue light filter
+exec --no-startup-id redshift -l 52.09:5.12 -t 6000:3500
+
+# Keybind for toggling the statusbar
+bindsym Pause bar mode toggle
+
