@@ -9,12 +9,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'wincent/terminus'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
 "-- basics
 
 set number
+set cursorline
 set incsearch
 set ruler
 set nocompatible
@@ -37,6 +40,8 @@ map <C-n> :NERDTreeToggle<CR>
 command Pdfrun execute "silent !pandoc --filter pandoc-citeproc -o %.pdf %" | redraw!
 map <F5> :Pdfrun<CR>
 
+vmap <C-c> :w !xclip -i -sel c
+
 "-- colour
 
 if (empty($TMUX))
@@ -55,4 +60,7 @@ let g:lightline = {
 syntax on
 set laststatus=2
 colorscheme onedark
+
+"-- Latex
+let g:livepreview_previewer = 'zathura'
 
