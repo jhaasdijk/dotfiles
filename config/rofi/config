@@ -1,3 +1,3 @@
 rofi.width: 500
 rofi.font:  monospace 9
-rofi.theme: ~/.config/rofi/arc-red-dark.rasi
+rofi.theme: /usr/share/rofi/themes/glue_pro_blue.rasi
