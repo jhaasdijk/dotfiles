@@ -7,7 +7,9 @@
 set $mod Mod4
 
 # font for window titles (and bar, unless otherwise specified)
-font pango:inconsolata 9
+#font pango:inconsolata 9
+font pango:dina 8
+#font pango:scientifica 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -117,13 +119,13 @@ bindsym $mod+r mode "resize"
          position    top
          tray_output none
 
-         status_command $HOME/Git/bumblebee-status/bumblebee-status -m pacman publicip disk amixer brightness load sensors memory cpu redshift battery datetime -p battery.warning="20" datetime.format="%H:%M:%S %A %d %b %Y" disk.format="{percent:05.02f}%" memory.format="{percent:05.02f}%" pacman.sum="true" publicip.region="nl" interval=5 -t gruvbox
- 
+         status_command $HOME/Git/other/bumblebee-status/bumblebee-status -m pacman publicip disk amixer brightness load sensors memory cpu redshift battery datetime -p battery.warning="20" datetime.format="%H:%M:%S %A %d %b %Y" disk.format="{percent:05.02f}%" memory.format="{percent:05.02f}%" pacman.sum="true" publicip.region="nl" interval=5 -t gruvbox
+
          colors {
                  background #202020
                  statusline #ffffff
                  separator  #999999
- 
+
                  focused_workspace  #999999 #999999 #000000
                  active_workspace   #717171 #717171 #000000
                  inactive_workspace #454545 #454545 #ffffff
@@ -140,7 +142,10 @@ set $white              #C5C8C6
 set $yellow             #F0C674
 set $red                #CC6666
 set $darkred            #A54242
-set $green              #B5BD56
+#set $green              #B5BD56
+
+# quick fix to paint borders white
+set $green              #FFFFFF
 
 #class                  border      backgr.     text        split
 client.focused          $green      $green      $black      $red
@@ -172,11 +177,12 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
 # Lockscreen
 bindsym Ctrl+Mod1+l exec betterlockscreen -l
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper
+#exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/december.jpg
+exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/flowers.jpg
 exec --no-startup-id betterlockscreen -w
 
 # Ensure best monitor use when (un-) docking
-exec_always $HOME/Scripts/monitors.sh
+exec_always ~/Scripts/monitors.sh
 
 # Pretty-fying borders
 new_window pixel 1
