@@ -1,20 +1,49 @@
-" Quick and dirty vim config
 
 "-- plugins
 " run ':PlugInstall' to update
 
 call plug#begin()
 
-Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'scrooloose/nerdtree'
+" General
 Plug 'wincent/terminus'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'godlygeek/tabular'    " = Plugin for aligning text (vertically :Tabular)
+Plug 'junegunn/goyo.vim'    " = Distraction-free writing in Vim
+Plug 'jiangmiao/auto-pairs' " = Insert or delete brackets, parens, quotes in pair
+Plug 'tpope/vim-surround'   " = all about 'surroundings'
+Plug 'rkitover/vimpager'    " = Enable vim as a pager
+
+" Theming
+Plug 'joshdick/onedark.vim'    " = onedark color scheme
+Plug 'chriskempson/base16-vim' " = base16 color scheme
+Plug 'flazz/vim-colorschemes'  " = Colorscheme manager
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'scrooloose/nerdtree'     " = The true panel
+Plug 'jistr/vim-nerdtree-tabs' " = The true panel, independent of tabs
+
+" Languages
+Plug 'sheerun/vim-polyglot'                            " = A collection of language packs for Vim
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " = Live Previewing LaTeX PDF Output
+Plug 'plasticboy/vim-markdown'                         " = Syntax highlighting, matching rules and mappings for Markdown
+
+" Git
+Plug 'airblade/vim-gitgutter' " = Git diff in the gutter
+
+
+" javascript development
+Plug 'pangloss/vim-javascript'
+Plug 'w0rp/ale'                " = asynchronous lint engine
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete drop down engine
+Plug 'wokalski/autocomplete-flow'
+
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
 
-"-- basics
+"-- General
 
 set number
 set cursorline
@@ -27,6 +56,8 @@ set expandtab
 set showmatch
 set noshowmode
 
+set encoding=utf-8
+
 "-- bindings
 
 nnoremap <C-up> <C-y>
@@ -35,15 +66,14 @@ nnoremap <C-k> <C-y>
 nnoremap <C-down> <C-E>
 nnoremap <C-j> <C-E>
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> <plug>NERDTreeTabsToggle<CR>
 
 command Pdfrun execute "silent !pandoc --filter pandoc-citeproc -o %.pdf %" | redraw!
 map <F5> :Pdfrun<CR>
 
 vmap <C-c> :w !xclip -i -sel c
 
-"-- colour
-
+"-- Theming
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -54,13 +84,30 @@ if (empty($TMUX))
 endif
 
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ }
+      \ 'colorscheme': 'jellybean',
+      \ }
+" wombat, solarized, powerline, jellybeans, Tomorrow,
+" Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
+" PaperColor, seoul256, landscape, one, darcula, molokai, materia,
+" material, OldHope, nord, 16color, deus
 
 syntax on
 set laststatus=2
-colorscheme onedark
+colorscheme base16-default-dark
+let base16colorspace=256  " Access colors present in 256 colorspace
 
 "-- Latex
 let g:livepreview_previewer = 'zathura'
+
+"-- Javascript
+let g:javascript_plugin_flow = 1
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+map <C-d> :ALEFix<CR>
+
+"-- Goyo
+let g:goyo_width  = "100%+5%"
+let g:goyo_height = "100%-5%"
+
+"-- Vim Markdown
+let g:vim_markdown_folding_disabled = 1
 
