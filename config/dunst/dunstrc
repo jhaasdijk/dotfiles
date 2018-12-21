@@ -85,8 +85,9 @@
 
     ### Text ###
 
-#    font = Monospace 8
-    font = SF Pro Display Medium 10
+    #font = Monospace 8
+    #font = SF Pro Display Medium 10
+    font = dina 8
 
     bounce_freq = 0
 
