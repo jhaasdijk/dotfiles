@@ -1,4 +1,5 @@
 [global_config]
+  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   focus = mouse
   title_inactive_bg_color = "#282c34"
   title_inactive_fg_color = "#888a85"
@@ -16,7 +17,7 @@
       type = Window
 [plugins]
 [profiles]
-  [[default]]
+  [[old_default]]
     allow_bold = False
     background_color = "#29262f"
     background_darkness = 0.04
@@ -26,6 +27,20 @@
     foreground_color = "#d9e6f2"
     icon_bell = False
     palette = "#000000:#c37372:#72c373:#c2c372:#7372c3:#c372c2:#72c2c3:#d9d9d9:#323232:#dbaaaa:#aadbaa:#dadbaa:#aaaadb:#dbaada:#aadadb:#ffffff"
+    scrollback_lines = 2500
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[default]]
+    allow_bold = False
+    background_color = "#2a1f1d"
+    background_darkness = 0.04
+    cursor_color = "#573d26"
+    cursor_color_fg = False
+    font = Dina 9
+    foreground_color = "#e0dbb7"
+    icon_bell = False
+    palette = "#573d26:#be2d26:#6ba18a:#e99d2a:#5a86ad:#ac80a6:#74a6ad:#e0dbb7:#9b6c4a:#e84627:#95d8ba:#d0d150:#b8d3ed:#d19ecb:#93cfd7:#fff9d5"
     scrollback_lines = 2500
     scrollbar_position = hidden
     show_titlebar = False
