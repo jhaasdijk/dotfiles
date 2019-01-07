@@ -135,7 +135,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = center
+    alignment = left
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -229,7 +229,7 @@
 
 [frame]
     width = 1
-    color = "#3CA0B8"
+    color = "#FFFFFF"
 
 [shortcuts]
     # Shortcuts are specified as [modifier+][modifier+]...key
