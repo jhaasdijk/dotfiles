@@ -112,53 +112,47 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (+ bumblebee-status information)
- bar {
-         mode        hide
-         modifier    None
-         position    top
-         tray_output none
+# Start i3bar to display a workspace bar
+bar {
+	status_command i3status
 
-         status_command $HOME/Git/other/bumblebee-status/bumblebee-status -m pacman publicip disk amixer brightness load sensors memory cpu redshift battery datetime -p battery.warning="20" datetime.format="%H:%M:%S %A %d %b %Y" disk.format="{percent:05.02f}%" memory.format="{percent:05.02f}%" pacman.sum="true" publicip.region="nl" interval=5 -t gruvbox
+	mode hide
+	height 18
+	position top
 
-         colors {
-                 background #202020
-                 statusline #ffffff
-                 separator  #999999
+    colors {
+			background #2f343f
+			statusline #2f343f
 
-                 focused_workspace  #999999 #999999 #000000
-                 active_workspace   #717171 #717171 #000000
-                 inactive_workspace #454545 #454545 #ffffff
-                 urgent_workspace   #c4c4c4 #c4c4c4 #000000
-         }
- }
+			# class             border  backgr. text
+			focused_workspace   #b7d3f2 #b7d3f2 #2f343f
+			active_workspace    #2f343f #2f343f #d8dee8
+			inactive_workspace  #2f343f #2f343f #d8dee8
+			urgent_workspace    #ebcb8b #ebcb8b #2f343f
+    }
+}
+
+# Keybind for toggling the statusbar
+bindsym Pause bar mode toggle
 
 # Colours
-set $back               #1d1F21
-set $black              #282A2E
-set $grey               #222222
-set $lightgrey          #707880
-set $white              #C5C8C6
-set $yellow             #F0C674
-set $red                #CC6666
-set $darkred            #A54242
-#set $green              #B5BD56
+set $color1     #b7d3f2
+set $color2     #2f343f
+set $color3     #eff3f6
+set $color4     #ebcb8b
+set $color5     #d8dee8
 
-# quick fix to paint borders white
-set $green              #FFFFFF
+#class                   border      backgr.     text        indicator   child border
+client.focused           $color1     $color1     $color2     $color1     $color1
+client.focused_inactive  $color3     $color3     $color2     $color3     $color3
+client.unfocused         $color3     $color2     $color3     $color3     $color3
+client.urgent            $color4     $color4     $color2     $color4     $color4
+client.placeholder       $color2     $color2     $color5     $color2     $color2
+client.background        $color2
 
-#class                  border      backgr.     text        split
-client.focused          $green      $green      $black      $red
-client.focused_inactive $grey       $grey       $lightgrey  $grey
-client.unfocused        $grey       $grey       $lightgrey  $grey
-client.urgent           $red        $red        $black      $red
-client.background       $back
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the first scratchpad window
+# Scratchpad controls
 bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
 
 # Screen brightness controls
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5  # decrease screen brightness
@@ -166,9 +160,9 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5    # increase
 
 # Volume controls
 set $aux_out alsa_output.pci-0000_00_1b.0.analog-stereo
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $aux_out toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $aux_out +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $aux_out -2%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $aux_out toggle
 
 # Media controls
 bindsym XF86AudioNext exec --no-startup-id playerctl next
@@ -177,28 +171,17 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
 # Lockscreen
 bindsym Ctrl+Mod1+l exec betterlockscreen -l
-#exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/december.jpg
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/flowers.jpg
+exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/cherryblossom/01.jpg
 exec --no-startup-id betterlockscreen -w
 
-# Ensure best monitor use when (un-) docking
-exec_always ~/Scripts/monitors.sh
-
-# Pretty-fying borders
+# Borders & gaps
 new_window pixel 1
 new_float pixel 1
 smart_borders on
-
-# Pretty-fying gaps
 gaps inner 2
 gaps outer 3
 
-# Using uk keyboard layout (because that's how I roll)
-exec --no-startup-id setxkbmap gb
-
-# Adjusting blue light filter
-exec --no-startup-id redshift -l 52.09:5.12 -t 6000:3500
-
-# Keybind for toggling the statusbar
-bindsym Pause bar mode toggle
-
+# Personal settings
+exec --no-startup-id setxkbmap gb # Use uk keyboard layout
+exec --no-startup-id redshift -l 52.09:5.12 -t 6000:3500 # Adjust blue light filter
+exec_always ~/Scripts/monitors.sh # Ensure best monitor use when (un-) docking
