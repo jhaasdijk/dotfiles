@@ -59,3 +59,4 @@ tztime local {
     format = "<span background='#b294bb'> T: </span><span background='#c5c8c6'> %time </span>"
     format_time = "%H:%M %d/%m"
 }
+
