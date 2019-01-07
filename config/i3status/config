@@ -11,7 +11,6 @@ general {
 
 # Order settings
 order += "wireless _first_"
-order += "ethernet _first_"
 order += "disk /"
 order += "volume master"
 order += "cpu_usage"
@@ -22,41 +21,41 @@ order += "tztime local"
 # Modules
 
 disk "/" {
-     format = "<span background='#f1fa8c'> / </span><span background='#e5e9f0'> %percentage_used </span>"
+     format = "<span background='#f0c674'> / </span><span background='#c5c8c6'> %percentage_used </span>"
 }
 
 wireless _first_ {
-    format_up = "<span background='#f2a359'> WIFI: </span><span background='#e5e9f0'> %quality </span>"
-    format_down = "<span background='#f2a359'> WIFI: </span><span background='#e5e9f0'> down </span>"
+    format_up = "<span background='#81a2be'> WIFI: </span><span background='#c5c8c6'> %essid </span>"
+    format_down = "<span background='#81a2be'> WIFI: </span><span background='#c5c8c6'> down </span>"
 }
 
 battery all {
-    format = "<span background='#ff79c6'> BAT: </span><span background='#e5e9f0'> %status / %percentage / %remaining </span>"
-    format_down = "<span background='#ff79c6'> BAT: </span><span background='#e5e9f0'> No battery </span>"
+    format = "<span background='#cc6666'> BAT: </span><span background='#c5c8c6'> %status / %percentage / %remaining </span>"
+    format_down = "<span background='#cc6666'> BAT: </span><span background='#c5c8c6'> No battery </span>"
     path = "/sys/class/power_supply/BAT%d/uevent"
     low_threshold = 10
 }
 
 cpu_usage {
-    format = "<span background='#b7d3f2'> CPU: </span><span background='#e5e9f0'> %usage </span>"
+    format = "<span background='#b5bd68'> CPU: </span><span background='#c5c8c6'> %usage </span>"
     max_threshold = 85
 }
 
 cpu_temperature 0 {
-    format = "<span background='#b7d3f2'> T: </span><span background='#e5e9f0'> %degrees °C </span>"
+    format = "<span background='#b5bd68'> T: </span><span background='#c5c8c6'> %degrees °C </span>"
     path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
     max_threshold = 85
-    format_above_threshold ="<span background='#b7d3f2'> Warning T above threshold: </span><span background='#e5e9f0'> %degrees °C </span>"
+    format_above_threshold ="<span background='#b5bd68'> Warning T above threshold: </span><span background='#c5c8c6'> %degrees °C </span>"
 }
 
 volume master {
-    format = "<span background='#41ead4'> VOL: </span><span background='#e5e9f0'> %volume </span>"
+    format = "<span background='#8abeb7'> VOL: </span><span background='#c5c8c6'> %volume </span>"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
 
 tztime local {
-    format = "<span background='#bd93f9'> T: </span><span background='#e5e9f0'> %time </span>"
+    format = "<span background='#b294bb'> T: </span><span background='#c5c8c6'> %time </span>"
     format_time = "%H:%M %d/%m"
 }
