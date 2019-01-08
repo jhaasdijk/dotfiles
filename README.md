@@ -8,6 +8,7 @@ A compiled list of configs and snippets created over time
 - [x] i3
 - [x] i3status
 - [x] nvim
+- [x] qutebrowser
 - [x] rofi
 - [x] terminator
 - [x] vim
