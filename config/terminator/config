@@ -1,59 +1,60 @@
 [global_config]
-  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   focus = mouse
-  title_inactive_bg_color = "#282c34"
-  title_inactive_fg_color = "#888a85"
-  title_receive_bg_color = "#282c34"
-  title_transmit_bg_color = "#282c34"
-  title_transmit_fg_color = "#98971a"
+  title_inactive_bg_color = "#999999"
+  title_inactive_fg_color = "#cccccc"
+  title_transmit_bg_color = "#666666"
+  title_transmit_fg_color = "#cccccc"
 [keybindings]
 [layouts]
   [[default]]
     [[[child1]]]
       parent = window0
+      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
       type = Window
 [plugins]
 [profiles]
-  [[old_default]]
-    allow_bold = False
-    background_color = "#29262f"
-    background_darkness = 0.04
-    cursor_color = "#f57900"
-    cursor_color_fg = False
-    font = Dina 9
-    foreground_color = "#d9e6f2"
-    icon_bell = False
-    palette = "#000000:#c37372:#72c373:#c2c372:#7372c3:#c372c2:#72c2c3:#d9d9d9:#323232:#dbaaaa:#aadbaa:#dadbaa:#aaaadb:#dbaada:#aadadb:#ffffff"
-    scrollback_lines = 2500
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
   [[default]]
     allow_bold = False
-    background_color = "#2a1f1d"
+    background_color = "#1d1f21"
     background_darkness = 0.04
-    cursor_color = "#573d26"
+    cursor_color = "#ce5c00"
     cursor_color_fg = False
     font = Dina 9
-    foreground_color = "#e0dbb7"
+    foreground_color = "#cccccc"
     icon_bell = False
-    palette = "#573d26:#be2d26:#6ba18a:#e99d2a:#5a86ad:#ac80a6:#74a6ad:#e0dbb7:#9b6c4a:#e84627:#95d8ba:#d0d150:#b8d3ed:#d19ecb:#93cfd7:#fff9d5"
+    palette = "#666666:#cc6699:#99cc66:#cc9966:#6699cc:#9966cc:#66cc99:#cccccc:#999999:#ff99cc:#ccff99:#ffcc99:#99ccff:#cc99ff:#99ffcc:#ffffff"
     scrollback_lines = 2500
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[material-light]]
+  [[ocean.light]]
     allow_bold = False
-    background_color = "#eeeeee"
-    cursor_color = "#f57900"
+    background_color = "#eff1f5"
+    background_darkness = 0.04
+    cursor_color = "#4f5b66"
     cursor_color_fg = False
     font = Dina 9
-    foreground_color = "#3c3c3b"
+    foreground_color = "#4f5b66"
     icon_bell = False
-    palette = "#f8f8f8:#d7005f:#718c00:#ff8f01:#005f87:#6a1e9a:#3e999f:#2c2c2c:#2c2c2c:#ef5251:#90c94d:#ffa000:#4271ae:#c774c1:#3e999f:#f5f5f5"
+    palette = "#2b303b:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#c0c5ce:#65737e:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#eff1f5"
+    scrollback_lines = 2500
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[simple_rainbow]]
+    allow_bold = False
+    background_color = "#575757"
+    background_darkness = 0.04
+    cursor_color = "#ce5c00"
+    cursor_color_fg = False
+    font = Dina 9
+    foreground_color = "#dcdccc"
+    icon_bell = False
+    palette = "#666666:#ff8278:#bde077:#eadc84:#77bee0:#dd91f3:#ffc178:#dddddd:#888888:#ff8278:#bde077:#eadc84:#77bee0:#dd91f3:#ffc178:#cccccc"
+    scrollback_lines = 2500
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
