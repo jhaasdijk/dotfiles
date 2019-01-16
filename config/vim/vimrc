@@ -84,7 +84,7 @@ if (empty($TMUX))
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybean',
+      \ 'colorscheme': 'Tomorrow_Night',
       \ }
 " wombat, solarized, powerline, jellybeans, Tomorrow,
 " Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
@@ -93,7 +93,7 @@ let g:lightline = {
 
 syntax on
 set laststatus=2
-colorscheme base16-default-dark
+colorscheme base16-ia-dark
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 "-- Latex
