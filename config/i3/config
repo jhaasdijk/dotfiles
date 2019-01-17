@@ -19,7 +19,7 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 # start your desired program launcher
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -font "dina 8"
 
 # change focus
 bindsym $mod+h focus left
@@ -122,6 +122,7 @@ set $color6     #1d1f21
 bar {
 	status_command i3status
 
+    modifier Ctrl+Shift
 	mode hide
 	height 20
 	position top
