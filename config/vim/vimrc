@@ -35,12 +35,6 @@ Plug 'airblade/vim-gitgutter' " = Git diff in the gutter
 Plug 'pangloss/vim-javascript'
 Plug 'w0rp/ale'                " = asynchronous lint engine
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete drop down engine
-Plug 'wokalski/autocomplete-flow'
-
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-
 call plug#end()
 
 "-- General

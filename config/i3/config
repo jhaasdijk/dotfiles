@@ -13,7 +13,8 @@ font pango:dina 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+#bindsym $mod+Return exec terminator
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -123,7 +124,7 @@ bar {
 	status_command i3status
 
     modifier Ctrl+Shift
-	mode hide
+	#mode hide
 	height 20
 	position top
 
@@ -171,7 +172,7 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
 # Lockscreen
 bindsym Ctrl+Mod1+l exec betterlockscreen -l
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/cherryblossom/01.jpg
+exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/cherryblossom/02.jpg
 exec --no-startup-id betterlockscreen -w
 
 # Borders & gaps
