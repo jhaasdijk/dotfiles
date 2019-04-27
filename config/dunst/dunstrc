@@ -85,7 +85,7 @@
 
 	### Text ###
 
-    font = dina 8
+    font = Fira Code 8
 
 
 	# The spacing between lines.  If the height is smaller than the
@@ -241,17 +241,17 @@
 	context = ctrl+shift+period
 
 [urgency_low]
-	background = "#181818"
+	background = "#000000"
 	foreground = "#d8d8d8"
 	timeout = 4
 
 [urgency_normal]
-	background = "#181818"
+	background = "#000000"
 	foreground = "#d8d8d8"
 	timeout = 4
 
 [urgency_critical]
-	background = "#181818"
+	background = "#000000"
 	foreground = "#d8d8d8"
 	frame_color="#ab4642"
 	timeout = 0
