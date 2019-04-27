@@ -2,36 +2,25 @@
 
 A compiled list of configs and snippets created over time
 
-# Configs
+# configs
 
 - [x] dunst
+- [x] fish
 - [x] i3
 - [x] i3status
 - [x] nvim
-- [x] qutebrowser
-- [x] rofi
-- [x] terminator
 - [x] vim
 - [x] zathura
-- [x] zsh
 
 ---
 
-# Post-install
+# post-install
 
 ```python
-install: {
-          betterlockscreen       i3status
-          firefox                oh-my-zsh
-          pandoc                 rofi
-          spotify                terminator
-          thunderbird            fonts
-         }
-
 firefox_addons: {
-          HTTPS Everywhere       NoScript
-          Privacy Badger         uBlock Origin
-          Vimium                 Cookie AutoDelete
-          Decentraleyes
-         }
+    uBlock Origin       NoScript
+    Privacy Badger      Cookie AutoDelete
+    Decentraleyes       HTTPS Everywhere
+    Vim Vixen
+}
 ```
