@@ -1,0 +1,37 @@
+
+# Author: jhaasdijk
+
+# A dark theme for zathura
+# This might reduce eye strain once the sun is down
+
+set default-bg                  "#000000"
+set default-fg                  "#bfbfa9"
+
+set statusbar-bg                "#000000"
+set statusbar-fg                "#bfbfa9"
+
+set inputbar-bg                 "#000000"
+set inputbar-fg                 "#bfbfa9"
+
+set notification-error-bg       "#000000"
+set notification-error-fg       "#ff5c57"
+
+set notification-warning-bg     "#000000"
+set notification-warning-fg     "#ffb536"
+
+set highlight-color             "#000000"
+set highlight-active-color      "#bfbfa9"
+
+set completion-highlight-bg     "#000000"
+set completion-highlight-fg     "#64964a"
+
+set completion-bg               "#000000"
+set completion-fg               "#bfbfa9"
+
+set notification-bg             "#000000"
+set notification-fg             "#bfbfa9"
+
+set recolor-lightcolor          "#000000"
+set recolor-darkcolor           "#fcecc3"
+set recolor "true"
+
