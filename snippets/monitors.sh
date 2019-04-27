@@ -1,10 +1,9 @@
-#!/bin/bash
-intern=LVDS1
-extern=VGA1
+intern=eDP-1
+extern=DP2-3
 
-if xrandr | grep "$extern disconnected"; then
-    xrandr --output "$extern" --off --output "$intern" --auto
+if xrandr | grep "$extern connected"; then
+    xrandr --output "$intern" --off --output "$extern" --auto --primary
 else
-    xrandr --output "$intern" --off --output "$extern" --auto
+    xrandr --output "$extern" --off --output "$intern" --auto --primary
 fi
 
