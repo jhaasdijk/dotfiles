@@ -4,15 +4,13 @@ general {
     output_format = "i3bar"
     colors        = false
     interval      = 5
-
     separator     = ""
     markup        = pango
 }
 
 # Order settings
-order += "wireless _first_"
-order += "disk /"
 order += "volume master"
+order += "disk /"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "battery all"
@@ -21,31 +19,26 @@ order += "tztime local"
 # Modules
 
 disk "/" {
-     format = "<span background='#f0c674'> / </span><span background='#c5c8c6'> %percentage_used </span>"
-}
-
-wireless _first_ {
-    format_up = "<span background='#81a2be'> WIFI: </span><span background='#c5c8c6'> %essid </span>"
-    format_down = "<span background='#81a2be'> WIFI: </span><span background='#c5c8c6'> down </span>"
+    format = "<span background='#ffb536'> / </span><span background='#c5c8c6'> %percentage_used </span>"
 }
 
 battery all {
-    format = "<span background='#cc6666'> BAT: </span><span background='#c5c8c6'> %status / %percentage / %remaining </span>"
-    format_down = "<span background='#cc6666'> BAT: </span><span background='#c5c8c6'> No battery </span>"
+    format = "<span background='#ff5c57'> BAT: </span><span background='#c5c8c6'> %status / %percentage / %remaining </span>"
+    format_down = "<span background='#ff5c57'> BAT: </span><span background='#c5c8c6'> No battery </span>"
     path = "/sys/class/power_supply/BAT%d/uevent"
     low_threshold = 10
 }
 
 cpu_usage {
-    format = "<span background='#b5bd68'> CPU: </span><span background='#c5c8c6'> %usage </span>"
+    format = "<span background='#64964a'> CPU: </span><span background='#c5c8c6'> %usage </span>"
     max_threshold = 85
 }
 
 cpu_temperature 0 {
-    format = "<span background='#b5bd68'> T: </span><span background='#c5c8c6'> %degrees °C </span>"
+    format = "<span background='#4fc84b'> T: </span><span background='#c5c8c6'> %degrees °C </span>"
     path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
     max_threshold = 85
-    format_above_threshold ="<span background='#b5bd68'> Warning T above threshold: </span><span background='#c5c8c6'> %degrees °C </span>"
+    format_above_threshold = "<span background='#4fc84b'> Warning T above threshold: </span><span background='#c5c8c6'> %degrees °C </span>"
 }
 
 volume master {
