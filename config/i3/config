@@ -7,20 +7,19 @@
 set $mod Mod4
 
 # font for window titles (and bar, unless otherwise specified)
-font pango:dina 8
+font pango:Fira Code 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec terminator
 bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start your desired program launcher
-bindsym $mod+d exec rofi -show run -font "dina 8"
+bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#327bb4'
 
 # change focus
 bindsym $mod+h focus left
@@ -99,10 +98,10 @@ mode "resize" {
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
 
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height  2 px or 2 ppt
+        bindsym Up resize shrink height  2 px or 2 ppt
+        bindsym Right resize grow width  2 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -111,53 +110,60 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Colours
-set $color1     #81a2be
-set $color2     #c5c8c6
-set $color3     #eff3f6
-set $color4     #ebcb8b
-set $color5     #d8dee8
-set $color6     #1d1f21
+# Colors
+#
+# color1: This is the main color of the config. It is used for everything in focus
+# color2: This color is used for the background on the workspace indicators in the bar
+# color3: This color is used as an indicator for unfocused and inactive windows
+# color4: This color is used for everything that is urgent
+# color5: This color is used for the background and text in the bar
+# color6: This color is used for the border of unfocused windows
+#
 
-# Start i3bar to display a workspace bar
+set $color1 #57c7ff
+set $color2 #c5c8c6
+set $color3 #eff3ff
+set $color4 #ffb536
+set $color5 #000000
+set $color6 #2a2837
+
+# Start i3status to display a workspace bar
 bar {
-	status_command i3status
-
-    modifier Ctrl+Shift
-	#mode hide
-	height 20
-	position top
-
+    status_command i3status
+    height 20
+    position top
+    tray_output primary
+    
     colors {
-			background $color6
-			statusline $color6
-
-			# class             border  backgr. text
-			focused_workspace   $color1 $color1 $color6
-			active_workspace    $color2 $color2 $color6
-			inactive_workspace  $color2 $color2 $color6
-			urgent_workspace    $color4 $color4 $color6
+        background $color5
+        statusline $color5
+        
+        # class             border  backgr. text
+        focused_workspace   $color1 $color1 $color5
+        active_workspace    $color2 $color2 $color5
+        inactive_workspace  $color2 $color2 $color5
+        urgent_workspace    $color4 $color4 $color5
     }
 }
 
 # Keybind for toggling the statusbar
-bindsym Pause bar mode toggle
+bindsym F12 bar mode toggle
 
 #class                   border      backgr.     text        indicator   child border
-client.focused           $color1     $color1     $color6     $color1     $color1
-client.focused_inactive  $color2     $color2     $color6     $color3     $color3
-client.unfocused         $color2     $color2     $color6     $color3     $color3
-client.urgent            $color4     $color4     $color6     $color4     $color4
-client.placeholder       $color2     $color2     $color6     $color2     $color2
-client.background        $color2
+client.focused           $color1     $color1     $color5     $color1     $color1
+client.focused_inactive  $color6     $color2     $color5     $color3     $color6
+client.unfocused         $color6     $color2     $color5     $color3     $color6
+client.urgent            $color4     $color4     $color5     $color4     $color4
+client.placeholder       $color2     $color2     $color5     $color2     $color2
+client.background        $color5
 
 # Scratchpad controls
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
 # Screen brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5  # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5    # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5    # increase screen brightness
 
 # Volume controls
 set $aux_out alsa_output.pci-0000_00_1b.0.analog-stereo
@@ -170,11 +176,6 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
-# Lockscreen
-bindsym Ctrl+Mod1+l exec betterlockscreen -l
-exec --no-startup-id betterlockscreen -u $HOME/Pictures/wallpaper/cherryblossom/02.jpg
-exec --no-startup-id betterlockscreen -w
-
 # Borders & gaps
 new_window pixel 1
 new_float pixel 1
@@ -183,6 +184,6 @@ gaps inner 2
 gaps outer 3
 
 # Personal settings
-exec --no-startup-id setxkbmap gb # Use uk keyboard layout
-exec --no-startup-id redshift -l 52.09:5.12 -t 6000:3500 # Adjust blue light filter
 exec_always ~/Scripts/monitors.sh # Ensure best monitor use when (un-) docking
+bindsym Ctrl+Mod1+l exec i3lock -c 000000
+
