@@ -94,7 +94,12 @@ let g:lightline = {
 
 syntax on
 set laststatus=2
-colorscheme jellybeans
+colorscheme oceanblack  " jellybeans
+                        " base16-black-metal-*
+                        " grb256
+                        " candy
+hi clear CursorLine
+hi CursorLine gui=underline
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 "-- Latex
