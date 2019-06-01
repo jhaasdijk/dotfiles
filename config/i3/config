@@ -19,7 +19,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # start your desired program launcher
-bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#327bb4'
+bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#8197bf'
 
 # change focus
 bindsym $mod+h focus left
@@ -120,7 +120,7 @@ bindsym $mod+r mode "resize"
 # color6: This color is used for the border of unfocused windows
 #
 
-set $color1 #57c7ff
+set $color1 #8197bf
 set $color2 #c5c8c6
 set $color3 #eff3ff
 set $color4 #ffb536
