@@ -37,7 +37,6 @@ Plug 'plasticboy/vim-markdown'                         " = Syntax highlighting, 
 " Git
 Plug 'airblade/vim-gitgutter' " = Git diff in the gutter
 
-
 " javascript development
 Plug 'pangloss/vim-javascript'
 Plug 'w0rp/ale'                " = asynchronous lint engine
@@ -85,7 +84,7 @@ if (empty($TMUX))
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'jellybeans'
       \ }
 " wombat, solarized, powerline, jellybeans, Tomorrow,
 " Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
@@ -94,10 +93,7 @@ let g:lightline = {
 
 syntax on
 set laststatus=2
-colorscheme oceanblack  " jellybeans
-                        " base16-black-metal-*
-                        " grb256
-                        " candy
+colorscheme Tomorrow-Night-Bright 
 hi clear CursorLine
 hi CursorLine gui=underline
 let base16colorspace=256  " Access colors present in 256 colorspace
@@ -111,7 +107,7 @@ let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 map <C-d> :ALEFix<CR>
 
 "-- Goyo
-let g:goyo_width  = "100%+5%"
+let g:goyo_width  = "50%+20%"
 let g:goyo_height = "100%-5%"
 
 "-- Vim Markdown
