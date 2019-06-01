@@ -60,9 +60,6 @@ function fish_prompt --description 'Write out the prompt'
         set -g __fish_prompt_normal (set_color normal)
     end
 
-    set -l color_cwd
-    set -l prefix
-    set -l suffix
     switch "$USER"
         case root toor
             if set -q fish_color_cwd_root
@@ -76,18 +73,14 @@ function fish_prompt --description 'Write out the prompt'
             set suffix '$'
     end
 
-    # PWD
-    set_color $color_cwd
-    echo -n (prompt_pwd)
-    set_color normal
 
-    printf '%s ' (__fish_vcs_prompt)
+    printf '%s' (__fish_vcs_prompt)
 
     if not test $last_status -eq 0
         set_color $fish_color_error
     end
 
-    echo -n "$suffix "
+    echo -n " $suffix "
 
     set_color normal
 end
