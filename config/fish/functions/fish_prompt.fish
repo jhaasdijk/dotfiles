@@ -1,5 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
-	set -l last_status $status
+    set -l last_status $status
 
     if not set -q __fish_git_prompt_show_informative_status
         set -g __fish_git_prompt_show_informative_status 1
@@ -73,14 +73,20 @@ function fish_prompt --description 'Write out the prompt'
             set suffix '$'
     end
 
-
     printf '%s' (__fish_vcs_prompt)
 
     if not test $last_status -eq 0
         set_color $fish_color_error
     end
 
-    echo -n " $suffix "
+    if test "$IN_NIX_SHELL"
+	set nix_shell_status ' <nix-shell>'
+    else
+	set nix_shell_status ''
+    end
+
+    echo -n -s "$nix_shell_status $suffix "
 
     set_color normal
 end
+
