@@ -19,37 +19,37 @@ order += "tztime local"
 # Modules
 
 disk "/" {
-    format = "<span background='#8197bf'> / </span><span background='#c5c8c6'> %percentage_used </span>"
+    format = "<span background='#ee9a17'> / </span><span background='#c5c8c6'> %percentage_used </span>"
 }
 
 battery all {
-    format = "<span background='#8197bf'> BAT: </span><span background='#c5c8c6'> %status / %percentage / %remaining </span>"
-    format_down = "<span background='#8197bf'> BAT: </span><span background='#c5c8c6'> No battery </span>"
+    format = "<span background='#ee9a17'> BAT: </span><span background='#c5c8c6'> %status / %percentage / %remaining </span>"
+    format_down = "<span background='#ee9a17'> BAT: </span><span background='#c5c8c6'> No battery </span>"
     path = "/sys/class/power_supply/BAT%d/uevent"
     low_threshold = 10
 }
 
 cpu_usage {
-    format = "<span background='#8197bf'> CPU: </span><span background='#c5c8c6'> %usage </span>"
+    format = "<span background='#ee9a17'> CPU: </span><span background='#c5c8c6'> %usage </span>"
     max_threshold = 85
 }
 
 cpu_temperature 0 {
-    format = "<span background='#8197bf'> T: </span><span background='#c5c8c6'> %degrees °C </span>"
+    format = "<span background='#ee9a17'> T: </span><span background='#c5c8c6'> %degrees °C </span>"
     path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
     max_threshold = 85
-    format_above_threshold = "<span background='#8197bf'> Warning T above threshold: </span><span background='#c5c8c6'> %degrees °C </span>"
+    format_above_threshold = "<span background='#ee9a17'> Warning T above threshold: </span><span background='#c5c8c6'> %degrees °C </span>"
 }
 
 volume master {
-    format = "<span background='#8197bf'> VOL: </span><span background='#c5c8c6'> %volume </span>"
+    format = "<span background='#ee9a17'> VOL: </span><span background='#c5c8c6'> %volume </span>"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
 
 tztime local {
-    format = "<span background='#8197bf'> T: </span><span background='#c5c8c6'> %time </span>"
+    format = "<span background='#ee9a17'> T: </span><span background='#c5c8c6'> %time </span>"
     format_time = "%H:%M %d/%m"
 }
 

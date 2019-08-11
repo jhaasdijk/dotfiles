@@ -1,5 +1,5 @@
 intern=eDP-1
-extern=DP2-3
+extern=DP-2-3
 
 if xrandr | grep "$extern connected"; then
     xrandr --output "$intern" --off --output "$extern" --auto --primary

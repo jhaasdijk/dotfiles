@@ -19,7 +19,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # start your desired program launcher
-bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#8197bf'
+bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#ee9a17'
 
 # change focus
 bindsym $mod+h focus left
@@ -120,7 +120,7 @@ bindsym $mod+r mode "resize"
 # color6: This color is used for the border of unfocused windows
 #
 
-set $color1 #8197bf
+set $color1 #ee9a17
 set $color2 #c5c8c6
 set $color3 #eff3ff
 set $color4 #ffb536
@@ -184,6 +184,6 @@ gaps inner 2
 gaps outer 3
 
 # Personal settings
-exec_always ~/Scripts/monitors.sh # Ensure best monitor use when (un-) docking
+exec_always ~/Projects/Config/dotfiles/snippets/monitors.sh # Ensure best monitor use when (un-) docking
 bindsym Ctrl+Mod1+l exec i3lock -c 000000
 
