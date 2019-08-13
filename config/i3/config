@@ -3,11 +3,29 @@
 # i3 config
 #
 
+#
+# Colors
+#
+# color1: This is the main color of the config. It is used for everything in focus
+# color2: This color is used for the background on the workspace indicators in the bar
+# color3: This color is used as an indicator for unfocused and inactive windows
+# color4: This color is used for everything that is urgent
+# color5: This color is used for the background and text in the bar
+# color6: This color is used for the border of unfocused windows
+#
+
+set $color1 #c5c8c6
+set $color2 #aaaaaa
+set $color3 #eff3ff
+set $color4 #ffb536
+set $color5 #000000
+set $color6 #2a2837
+
 # set the modifier key
 set $mod Mod4
 
 # font for window titles (and bar, unless otherwise specified)
-font pango:Fira Code 8
+font pango:MesloLGL Nerd Font Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -19,7 +37,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # start your desired program launcher
-bindsym $mod+d exec dmenu_run -nf '#ffffff' -sf '#000000' -nb '#000000' -sb '#ee9a17'
+bindsym $mod+d exec dmenu_run -nf '$color1' -sf '$color5' -nb '$color5' -sb '$color1'
 
 # change focus
 bindsym $mod+h focus left
@@ -110,23 +128,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Colors
-#
-# color1: This is the main color of the config. It is used for everything in focus
-# color2: This color is used for the background on the workspace indicators in the bar
-# color3: This color is used as an indicator for unfocused and inactive windows
-# color4: This color is used for everything that is urgent
-# color5: This color is used for the background and text in the bar
-# color6: This color is used for the border of unfocused windows
-#
-
-set $color1 #ee9a17
-set $color2 #c5c8c6
-set $color3 #eff3ff
-set $color4 #ffb536
-set $color5 #000000
-set $color6 #2a2837
-
 # Start i3status to display a workspace bar
 bar {
     status_command i3status
@@ -180,10 +181,12 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 new_window pixel 1
 new_float pixel 1
 smart_borders on
-gaps inner 2
+gaps inner 6
 gaps outer 3
 
 # Personal settings
 exec_always ~/Projects/Config/dotfiles/snippets/monitors.sh # Ensure best monitor use when (un-) docking
 bindsym Ctrl+Mod1+l exec i3lock -c 000000
 
+# wallpaper
+exec_always feh --bg-center ~/Pictures/wallpaper/minimal-mesh.png
