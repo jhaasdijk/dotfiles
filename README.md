@@ -8,8 +8,7 @@ A compiled list of configs and snippets created over time
 - [x] fish
 - [x] i3
 - [x] i3status
-- [x] nvim
-- [x] vim
+- [x] tmux
 - [x] zathura
 
 ---
@@ -18,9 +17,10 @@ A compiled list of configs and snippets created over time
 
 ```python
 firefox_addons: {
-    uBlock Origin       NoScript
-    Privacy Badger      Cookie AutoDelete
-    Decentraleyes       HTTPS Everywhere
+    CanvasBlocker	Cookie AutoDelete
+    Decentraleyes	HTTPS Everywhere
+    NoScript		Privacy Badger
+    Refined Github	uBlock Origin
     Vim Vixen
 }
 ```

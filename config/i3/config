@@ -180,13 +180,9 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # Borders & gaps
 new_window pixel 1
 new_float pixel 1
-smart_borders on
 gaps inner 6
 gaps outer 3
 
 # Personal settings
-exec_always ~/Projects/Config/dotfiles/snippets/monitors.sh # Ensure best monitor use when (un-) docking
-bindsym Ctrl+Mod1+l exec i3lock -c 000000
+bindsym Ctrl+Mod1+l exec i3lock -c 2f302f
 
-# wallpaper
-exec_always feh --bg-center ~/Pictures/wallpaper/minimal-mesh.png
