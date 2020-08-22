@@ -25,7 +25,8 @@ set $color6 #2a2837
 set $mod Mod4
 
 # font for window titles (and bar, unless otherwise specified)
-font pango:MesloLGL Nerd Font Mono 8
+#font pango:MesloLGL Nerd Font Mono 8
+font pango: JetBrainsMono Nerd Font 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -132,7 +133,7 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     height 20
-    position top
+    position bottom
     tray_output primary
     
     colors {
@@ -184,5 +185,11 @@ gaps inner 6
 gaps outer 3
 
 # Personal settings
+exec_always ~/Projects/Config/dotfiles/snippets/monitors.sh # Ensure best monitor use when (un-) docking
 bindsym Ctrl+Mod1+l exec i3lock -c 2f302f
+
+exec_always feh --bg-fill ~/Pictures/wallpaper/castle.jpg
+
+# screenshot
+bindsym $mod+Shift+s exec flameshot gui
 
